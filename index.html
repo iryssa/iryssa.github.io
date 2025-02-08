@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width" />
     <title>Iryssa</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Math&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a270e6e1e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="snow"></canvas>
     <div class="title">Iryssa</div>
     <div class="subtitle">
       <div dir="rtl" lang="ar">مرحبًا بك في Iryssa!</div>
@@ -20,19 +22,43 @@
       <div dir="ltr" lang="es">¡Bienvenido a Iryssa!</div>
     </div>
     <div class="container">
-      <button class="navigation" id="about">About &#x2197;</button>
+      <div>
+        <button class="departure" id="members"><span class="emoji">&#x1f6eb;</span></button>
+      </div>
+      <div>&#x200B;</div>
+      <div>
+        <button class="departure" id="join_us"><span class="emoji">&#x1f6eb;</span></button>
+      </div>
     </div>
-    <div class="section" id="about">
-      <button class="return">&#x2928;</button>
+    <div class="section" id="members">
+      <button class="return" id="members"><span class="emoji">&#x1f6ec;</span></button>
       <h1>Members</h1>
       <hr />
       <h2>Kong Wing Wu</h2>
       <h3>Qiuzhen College, Tsinghua University</h3>
-      <p>Hi, there!</p>
+      <p>Hi, there! <span class="emoji">&#x1F44B;</span></p>
       <br />
       <h2>Otis Wong</h2>
       <h3>Shenzhen Middle School</h3>
-      <p>Hi, there!</p>
+      <p>Hi, there! <span class="emoji">&#x1F44B;</span></p>
+    </div>
+    <div class="section" id="join_us">
+      <button class="return" id="join_us"><span class="emoji">&#x1f6ec;</span></button>
+      <h1>Join Us</h1>
+      <hr />
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://github.com/iryssa"><i class="fa-brands fa-github"></i> GitHub Organization</a></li>
+        <li><a href="https://join.skype.com/qhfZf3IJ2rcc"><i class="fa-brands fa-skype"></i> Skype Conversation</a></li>
+      </ul>
+      <br />
+      <h2>Recruitment Requirements</h2>
+      <p>The skills listed below are just a reference for what we’re looking for right now—you might already have or be interested in developing some of them. If you have other skills, feel free to reach out and chat with us!</p>
+      <ul>
+        <li>Publicity or Resource Management Skills</li>
+        <li>Website Development or Programming Skills</li>
+        <li>Financial Management Skills</li>
+      </ul>
     </div>
     <script src="main.js"></script>
   </body>
