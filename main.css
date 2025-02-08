@@ -16,6 +16,7 @@ p {
 
 a {
   color: aliceblue;
+  text-decoration: none;
 }
 
 button {
@@ -70,7 +71,6 @@ hr {
   text-align: center;
   white-space: nowrap;
   transform: translate(-50%, -50%);
-  column-count: 2;
 }
 
 .container {
@@ -115,4 +115,16 @@ hr {
 
 [lang|='zh'] {
   font-family: "Noto Sans", "Noto Sans SC", sans-serif;
+}
+
+@media (orientation: landscape) {
+  .subtitle {
+    column-count: 2;
+  }
+}
+
+@media (orientation: portrait) {
+  .subtitle {
+    column-count: 1;
+  }
 }
