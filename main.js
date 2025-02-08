@@ -81,3 +81,15 @@ class ParticleSystem {
 }
 
 const particleSystem = new ParticleSystem();
+
+const aboutButton = document.querySelector("button.navigation#about");
+const aboutSection = document.querySelector("div.section#about");
+const returnButton = aboutSection.querySelector("button.return");
+
+aboutButton.addEventListener("click", function () {
+  aboutSection.classList.add("active");
+});
+
+returnButton.addEventListener("click", function () {
+  aboutSection.classList.remove("active");
+});

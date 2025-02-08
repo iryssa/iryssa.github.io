@@ -3,20 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic&family=Noto+Sans+SC&family=Noto+Sans" rel="stylesheet" />
     <title>Iryssa</title>
-    <link href="main.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Math&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <canvas id="canvas"></canvas>
     <div class="title">Iryssa</div>
     <div class="subtitle">
-      <div lang="ar">مرحبًا بك في Iryssa!</div>
-      <div lang="zh">欢迎来到 Iryssa！</div>
-      <div lang="en">Welcome to Iryssa!</div>
-      <div lang="fr">Bienvenue à Iryssa !</div>
-      <div lang="ru">Добро пожаловать в Iryssa!</div>
-      <div lang="es">¡Bienvenido a Iryssa!</div>
+      <div dir="rtl" lang="ar">مرحبًا بك في Iryssa!</div>
+      <div dir="ltr" lang="zh">欢迎来到 Iryssa！</div>
+      <div dir="ltr" lang="en">Welcome to Iryssa!</div>
+      <div dir="ltr" lang="fr">Bienvenue à Iryssa !</div>
+      <div dir="ltr" lang="ru">Добро пожаловать в Iryssa!</div>
+      <div dir="ltr" lang="es">¡Bienvenido a Iryssa!</div>
+    </div>
+    <div class="container">
+      <button class="navigation" id="about">About &#x2197;</button>
+    </div>
+    <div class="section" id="about">
+      <button class="return">&#x2928;</button>
+      <h1>Members</h1>
+      <hr />
+      <h2>Kong Wing Wu</h2>
+      <h3>Qiuzhen College, Tsinghua University </h3>
+      <p>Hi, there!</p>
+      <br />
+      <h2>Otis Wong</h2>
+      <h3>Shenzhen Middle School</h3>
+      <p>Hi, there!</p>
     </div>
     <script src="main.js"></script>
   </body>

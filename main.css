@@ -1,38 +1,106 @@
-[lang='ar'] {
-  direction: rtl;
-  font-family: "Noto Sans", "Noto Sans Arabic", sans-serif;
-}
-
-[lang='zh'] {
-  font-family: "Noto Sans", "Noto Sans SC", sans-serif;
-}
-
 html {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Noto Sans", "Noto Sans Math", sans-serif;
   font-size: 16px;
-  text-shadow: 0 0 16px;
+  text-shadow: 0 0 2px;
 }
 
 body {
-  background-color: black;
+  overflow: clip;
   color: white;
-  overflow: hidden;
+  background-color: black;
+}
+
+button {
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+button:active {
+  transform: scale(0.8);
+}
+
+hr {
+  border: none;
+  border-top: solid;
+  border-radius: 2px;
 }
 
 .title {
   position: absolute;
   top: 25%;
   left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 96px;
   text-align: center;
+  text-shadow: 0 0 12px;
+  transform: translate(-50%, -50%);
 }
 
 .subtitle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
   text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 32px;
+  backdrop-filter: blur(8px);
+  transform: translateX(-50%);
+  transition: 1s;
+}
+
+.section.active {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation {
+  padding: 12px 24px;
+  background: white;
+  border-radius: 24px;
+}
+
+.navigation:hover {
+  opacity: 0.8;
+}
+
+.return {
+  float: right;
+  color: white;
+  text-shadow: 0 0 3px;
+  outline: thin solid gray;
+  background: transparent;
+  border-radius: 12px;
+}
+
+.return:hover {
+  outline: none;
+  background: gray;
+}
+
+#canvas {
+  position: fixed;
+}
+
+[lang|='ar'] {
+  font-family: "Noto Sans", "Noto Sans Arabic", sans-serif;
+}
+
+[lang|='zh'] {
+  font-family: "Noto Sans", "Noto Sans SC", sans-serif;
 }
