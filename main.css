@@ -105,7 +105,7 @@ button:active {
 
 .github-skype {
   font-family: "Font Awesome 5 Free";
-  /* font-weight: 900; */
+  font-weight: 900;
   list-style: github-skype;
 }
 
