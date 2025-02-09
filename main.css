@@ -15,7 +15,7 @@ p {
 }
 
 a {
-  color: aliceblue;
+  color: azure;
   text-decoration: none;
 }
 
@@ -71,32 +71,54 @@ button:active {
   position: absolute;
   top: 75%;
   left: 50%;
+  backdrop-filter: blur(2px);
   transform: translate(-50%, -50%);
+}
+
+.navigator {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  width: max-content;
+  border-bottom-left-radius: 24px;
+  backdrop-filter: blur(2px);
+  transform: translateX(-100%);
+}
+
+.navigator button {
+  border-radius: 0px;
+}
+
+.navigator button#about {
+  border-bottom-left-radius: 24px;
 }
 
 .section {
   position: absolute;
   top: 100%;
   left: 50%;
+  visibility: hidden;
   width: max-content;
   max-width: min(512px, 75%);
   padding: 24px;
   background: rgb(50% 50% 50% / 50%);
   border-radius: 24px;
+  opacity: 0;
   backdrop-filter: blur(8px);
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleY(0);
   transition: 0.5s;
 }
 
 .section.active {
   top: 50%;
   z-index: 1;
+  visibility: visible;
+  opacity: 1;
   transform: translate(-50%, -50%);
 }
 
 .content {
   border-top: solid;
-  border-radius: 2px;
 }
 
 .emoji {
@@ -113,8 +135,10 @@ button:active {
   content: "\F17E\2002";
 }
 
-#canvas {
-  position: fixed;
+.snow {
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
 
 [lang|='ar'] {

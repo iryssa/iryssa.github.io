@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <canvas id="snow"></canvas>
+    <canvas class="background" id="snow"></canvas>
     <div class="title">Iryssa</div>
     <div class="subtitle">
       <div dir="rtl" lang="ar">مرحبًا بك في Iryssa!</div>
@@ -21,19 +21,35 @@
       <div dir="ltr" lang="ru">Добро пожаловать в Iryssa!</div>
       <div dir="ltr" lang="es">¡Bienvenido a Iryssa!</div>
     </div>
+    <div class="navigator">
+      <button class="departure" id="about">About</button>
+      <button class="departure" id="projects">Projects</button>
+      <button class="departure" id="members">Members</button>
+    </div>
     <div class="container">
-      <button class="departure" id="members"><span class="emoji">&#x1f6eb;</span></button>
       <button class="departure" id="join_us"><span class="emoji">&#x1f6eb;</span></button>
+    </div>
+    <div class="section" id="about">
+      <button class="return" id="about"><span class="emoji">&#x1f6ec;</span></button>
+      <h1>About</h1>
+      <div class="content">
+      </div>
+    </div>
+    <div class="section" id="projects">
+      <button class="return" id="projects"><span class="emoji">&#x1f6ec;</span></button>
+      <h1>Projects</h1>
+      <div class="content">
+      </div>
     </div>
     <div class="section" id="members">
       <button class="return" id="members"><span class="emoji">&#x1f6ec;</span></button>
       <h1>Members</h1>
       <div class="content">
         <h2>Kong Wing Wu</h2>
-        <h3>Qiuzhen College, Tsinghua University</h3>
+        <h3>Qiuzhen&nbsp;College, Tsinghua&nbsp;University</h3>
         <div>Hi, there! <span class="emoji">&#x1F44B;</span></div>
         <h2>Otis Wong</h2>
-        <h3>Shenzhen Middle School</h3>
+        <h3>Shenzhen&nbsp;Middle&nbsp;School</h3>
         <div>Hi, there! <span class="emoji">&#x1F44B;</span></div>
       </div>
     </div>
@@ -55,6 +71,7 @@
         </ul>
       </div>
     </div>
+    <canvas class="foreground" id="snow"></canvas>
     <script src="main.js"></script>
   </body>
 </html>
