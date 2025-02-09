@@ -109,9 +109,9 @@ button:active {
   list-style: github-skype;
 }
 
-.text {
+/* .text {
   font-family: "Noto Sans", sans-serif;
-}
+} */
 
 #canvas {
   position: fixed;
