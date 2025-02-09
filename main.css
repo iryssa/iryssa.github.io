@@ -104,8 +104,8 @@ button:active {
 }
 
 .github::marker {
-  font-family: FontAwesome;
-  content: "\F09B\2004\2004";
+  font-family: "Font Awesome";
+  content: "G\F09B\2004\2004";
 }
 
 .skype::marker {
