@@ -103,8 +103,14 @@ button:active {
   font-family: "Noto Emoji", emoji;
 }
 
-.github-skype {
-  list-style: github-skype;
+.github::marker {
+  font-family: "Font Awesome";
+  content: "\F09B\2004\2004";
+}
+
+.skype::marker {
+  font-family: "Font Awesome";
+  content: "\F13E\2004\2004";
 }
 
 #canvas {
@@ -117,11 +123,6 @@ button:active {
 
 [lang|='zh'] {
   font-family: "Noto Sans", "Noto Sans SC", sans-serif;
-}
-
-@counter-style github-skype {
-  symbols: "\F09B" "\F13E";
-  suffix: "\2004\2004";
 }
 
 @media (orientation: landscape) {
