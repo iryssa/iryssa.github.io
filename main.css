@@ -104,16 +104,16 @@ button:active {
 }
 
 .github::marker {
-  font-family: "Font Awesome\ 5 Free";
-  font-weight: 900;
+  font-family: "Font Awesome 6 Brands";
+  /* font-weight: 900; */
   content: "\F09B\2004\2004";
 }
 
-.github {
+/* .github {
   font-family: "Font Awesome\ 5 Free";
   font-weight: 900;
   content: "\F13E\2004\2004";
-}
+} */
 
 #canvas {
   position: fixed;
