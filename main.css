@@ -67,13 +67,18 @@ button:active {
   transform: translate(-50%, -50%);
 }
 
-.container {
+.panel {
   position: absolute;
-  top: 75%;
-  left: 50%;
-  border-radius: 24px;
+  top: 0%;
+  left: 0%;
+  border-bottom-right-radius: 24px;
   backdrop-filter: blur(2px);
-  transform: translate(-50%, -50%);
+}
+
+.panel button {
+  border-radius: 0px;
+  border-bottom-right-radius: 24px;
+  backdrop-filter: blur(2px);
 }
 
 .navigator {
@@ -92,6 +97,15 @@ button:active {
 
 .navigator button:active {
   border-radius: 24px;
+}
+
+.container {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  border-radius: 24px;
+  backdrop-filter: blur(2px);
+  transform: translate(-50%, -50%);
 }
 
 .section {
