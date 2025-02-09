@@ -104,15 +104,15 @@ button:active {
 }
 
 .github::marker {
-  font-family: "Font Awesome";
-  font-style: normal;
-  content: "G\F09B\2004\2004";
+  font-family: "Font Awesome\ 5 Free";
+  font-weight: 900;
+  content: "\F09B\2004\2004";
 }
 
-.skype::marker {
-  font-family: "Font Awesome";
-  font-style: normal;
-  content: "S\F13E\2004\2004";
+.github {
+  font-family: "Font Awesome\ 5 Free";
+  font-weight: 900;
+  content: "\F13E\2004\2004";
 }
 
 #canvas {
