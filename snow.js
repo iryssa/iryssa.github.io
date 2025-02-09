@@ -1,28 +1,30 @@
 const canvas = document.getElementById('snow');
 const ctx = canvas.getContext('2d');
 
-// Set canvas dimensions to full window.
+// Set canvas dimensions to full window size.
 let W = canvas.width = window.innerWidth;
 let H = canvas.height = window.innerHeight;
 
-// Helper function to save the ground array to localStorage.
+// Save the ground array (snowpack heights) to localStorage.
 function saveGround() {
   try {
     localStorage.setItem('snowpackGround', JSON.stringify(ground));
   } catch (e) {
-    console.warn("Could not save snowpack to localStorage", e);
+    console.warn("Could not save snowpack.", e);
   }
 }
 
-// Try to load the stored ground; if none exists, create a new array.
-let savedData = localStorage.getItem('snowpackGround');
+// Load the ground array from localStorage if it exists.
 let ground;
-if (savedData) {
+const storedGround = localStorage.getItem('snowpackGround');
+if (storedGround) {
   try {
-    ground = JSON.parse(savedData);
-    // If stored array length doesn't match current width, adjust:
-    if (ground.length !== W) {
+    let loaded = JSON.parse(storedGround);
+    // If the canvas width has changed, reinitialize ground.
+    if (loaded.length !== W) {
       ground = new Array(W).fill(0);
+    } else {
+      ground = loaded;
     }
   } catch (e) {
     ground = new Array(W).fill(0);
@@ -31,9 +33,10 @@ if (savedData) {
   ground = new Array(W).fill(0);
 }
 
-let newAccumulation = false; // Flag indicating new snowfall this frame.
+// Flag to indicate when new snow has been added.
+let newAccumulation = false;
 
-// Create an offscreen grain texture for filling the snow.
+// Generate an offscreen grain texture for a snow-like fill.
 function createGrainPattern() {
   const grainCanvas = document.createElement('canvas');
   grainCanvas.width = 100;
@@ -41,7 +44,7 @@ function createGrainPattern() {
   const gctx = grainCanvas.getContext('2d');
   const imageData = gctx.createImageData(grainCanvas.width, grainCanvas.height);
   for (let i = 0; i < imageData.data.length; i += 4) {
-    let v = 220 + Math.floor(Math.random() * 36);
+    let v = 220 + Math.floor(Math.random() * 36); // 220-255 range.
     imageData.data[i] = v;
     imageData.data[i + 1] = v;
     imageData.data[i + 2] = v;
@@ -52,11 +55,11 @@ function createGrainPattern() {
 }
 let grainPattern = createGrainPattern();
 
-// Adjust dimensions on resize.
+// Adapt to window resizing.
 window.addEventListener('resize', () => {
   W = canvas.width = window.innerWidth;
   H = canvas.height = window.innerHeight;
-  // Reset ground to an array of new size.
+  // When resized, reinitialize the ground (or use a strategy to smooth scale data).
   ground = new Array(W).fill(0);
   saveGround();
   grainPattern = createGrainPattern();
@@ -71,14 +74,14 @@ function Snowflake() {
   this.y = Math.random() * -H;
   this.r = Math.random() * 3 + 1;
   this.speed = (this.r * 0.5) + Math.random();
+  // Slight horizontal drift for a near-vertical descent.
   this.drift = Math.random() * 0.4 - 0.2;
 }
-
 for (let i = 0; i < maxFlakes; i++) {
   flakes.push(new Snowflake());
 }
 
-// When a flake lands, add to the ground accumulation at nearly that x-position (and spread to adjacent pixels).
+// Deposit snow: increase the height at x, plus a fraction in adjacent columns.
 function accumulateSnow(xPos, amount) {
   if (xPos < 0 || xPos >= ground.length) return;
   ground[xPos] += amount;
@@ -87,7 +90,7 @@ function accumulateSnow(xPos, amount) {
   newAccumulation = true;
 }
 
-// Update and smooth the ground only when new snow is added.
+// Update the ground: diffuse, add some noise, and adjust steep differences.
 function updateGround() {
   if (!newAccumulation) return;
   const newGround = ground.slice();
@@ -98,15 +101,15 @@ function updateGround() {
     newGround[x] += (neighborAvg - ground[x]) * diffusion;
     newGround[x] += (Math.random() - 0.5) * noiseAmplitude;
   }
-  // Pin the edges.
+  // Fix edges.
   newGround[0] = newGround[1];
   newGround[newGround.length - 1] = newGround[newGround.length - 2];
 
-  // Avalanche collapse: shift snow if differences are too steep.
+  // Avalanche collapse: shift excess snow if the height difference is too high.
   const collapseThreshold = 10;
   const collapseAmount = 0.5;
   for (let x = 0; x < ground.length - 1; x++) {
-    let diff = newGround[x] - newGround[x + 1];
+    const diff = newGround[x] - newGround[x + 1];
     if (Math.abs(diff) > collapseThreshold) {
       if (diff > 0) {
         newGround[x] -= collapseAmount;
@@ -117,18 +120,17 @@ function updateGround() {
       }
     }
   }
-
   ground = newGround;
   newAccumulation = false;
-  // Save updated ground to localStorage.
+  // Persist the updated ground to localStorage.
   saveGround();
 }
 
-// Draw the snow surface along the bottom using a smooth cubic Bézier curve.
+// Draw a smooth snow surface using cubic Bézier curves.
 function drawGround() {
-  // Step 1: Sample the ground at fixed intervals.
+  // Sample ground heights at intervals.
   const samples = [];
-  const step = 8; // macro sampling step
+  const step = 8;
   samples.push({
     x: 0,
     y: H - ground[0]
@@ -144,11 +146,11 @@ function drawGround() {
     y: H - ground[ground.length - 1]
   });
 
-  // Step 2: Smooth the sample points with a moving average.
+  // Smooth the sample points with a simple moving average.
   const smoothSamples = [];
   smoothSamples.push(samples[0]);
   for (let i = 1; i < samples.length - 1; i++) {
-    let avgY = (samples[i - 1].y + samples[i].y + samples[i + 1].y) / 3;
+    const avgY = (samples[i - 1].y + samples[i].y + samples[i + 1].y) / 3;
     smoothSamples.push({
       x: samples[i].x,
       y: avgY
@@ -156,7 +158,7 @@ function drawGround() {
   }
   smoothSamples.push(samples[samples.length - 1]);
 
-  // Step 3: Draw the curve using cubic Bézier segments.
+  // Draw the ground curve using cubic Bézier segments.
   ctx.beginPath();
   ctx.moveTo(0, H);
   ctx.lineTo(smoothSamples[0].x, smoothSamples[0].y);
@@ -165,7 +167,6 @@ function drawGround() {
     const p1 = smoothSamples[i + 1];
     const pPrev = i === 0 ? p0 : smoothSamples[i - 1];
     const pNext = (i + 2) >= smoothSamples.length ? p1 : smoothSamples[i + 2];
-
     const cp1x = p0.x + (p1.x - pPrev.x) / 6;
     const cp1y = p0.y + (p1.y - pPrev.y) / 6;
     const cp2x = p1.x - (pNext.x - p0.x) / 6;
@@ -178,19 +179,20 @@ function drawGround() {
   ctx.fill();
 }
 
-// Main animation loop: update snowflakes and ground, and draw the scene.
+// Main animation loop.
 function drawSnow() {
+  // Clear canvas.
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, W, H);
 
-  // Process and render snowflakes.
+  // Update and draw each snowflake.
   for (let i = 0; i < flakes.length; i++) {
     const flake = flakes[i];
     let xPos = Math.floor(flake.x);
     xPos = Math.max(0, Math.min(xPos, ground.length - 1));
 
-    // If the snowflake reaches the accumulated ground, deposit its mass.
+    // When a flake reaches the current snowpack, deposit its snow.
     if (flake.y + flake.r >= H - ground[xPos]) {
       accumulateSnow(xPos, flake.r * 0.6);
       flakes[i] = new Snowflake();
