@@ -71,6 +71,7 @@ button:active {
   position: absolute;
   top: 75%;
   left: 50%;
+  border-radius: 24px;
   backdrop-filter: blur(2px);
   transform: translate(-50%, -50%);
 }
@@ -79,18 +80,18 @@ button:active {
   position: absolute;
   top: 0%;
   left: 100%;
-  width: max-content;
   border-bottom-left-radius: 24px;
   backdrop-filter: blur(2px);
   transform: translateX(-100%);
 }
 
 .navigator button {
+  width: 192px;
   border-radius: 0px;
 }
 
-.navigator button#about {
-  border-bottom-left-radius: 24px;
+.navigator button:active {
+  border-radius: 24px;
 }
 
 .section {
@@ -135,7 +136,7 @@ button:active {
   content: "\F17E\2002";
 }
 
-.snow {
+.background {
   position: absolute;
   top: 0%;
   left: 0%;
@@ -153,10 +154,26 @@ button:active {
   .subtitle {
     column-count: 2;
   }
+
+  .navigator {
+    width: max-content;
+  }
+
+  .navigator button#about {
+    border-bottom-left-radius: 24px;
+  }
 }
 
 @media (orientation: portrait) {
   .subtitle {
     column-count: 1;
+  }
+
+  .navigator {
+    width: 192px;
+  }
+
+  .navigator button#members {
+    border-bottom-left-radius: 24px;
   }
 }
