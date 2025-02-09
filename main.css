@@ -79,6 +79,7 @@ button:active {
   top: 100%;
   left: 50%;
   width: max-content;
+  max-width: min(512px, 75%);
   padding: 24px;
   background: rgb(50% 50% 50% / 50%);
   border-radius: 24px;
@@ -95,10 +96,17 @@ button:active {
 
 .content {
   border-top: solid;
+  border-radius: 2px;
 }
 
 .emoji {
   font-family: "Noto Emoji", sans-serif;
+}
+
+.github-skype {
+  font-family: "Font Awesome\ 5 Free";
+  font-weight: 900;
+  list-style: github-skype;
 }
 
 #canvas {
@@ -113,22 +121,19 @@ button:active {
   font-family: "Noto Sans", "Noto Sans SC", sans-serif;
 }
 
+@counter-style github-skype {
+  symbols: "\f09b \f17e";
+  suffix: " ";
+}
+
 @media (orientation: landscape) {
   .subtitle {
     column-count: 2;
-  }
-
-  .section {
-    max-width: 25%;
   }
 }
 
 @media (orientation: portrait) {
   .subtitle {
     column-count: 1;
-  }
-
-  .section {
-    max-width: 50%;
   }
 }
