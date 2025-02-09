@@ -122,7 +122,7 @@ button:active {
 }
 
 @counter-style github-skype {
-  symbols: "\f09b \f17e";
+  symbols: "\f09b";
   suffix: " ";
 }
 
