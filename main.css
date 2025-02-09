@@ -104,7 +104,7 @@ button:active {
 }
 
 .github-skype {
-  font-family: "Font Awesome";
+  font-family: "Font Awesome 5";
   font-style: normal;
   list-style: github-skype;
 }
@@ -123,7 +123,7 @@ button:active {
 
 @counter-style github-skype {
   symbols: "\F09B" "\F17E";
-  suffix: " ";
+  suffix: "\2002";
 }
 
 @media (orientation: landscape) {
