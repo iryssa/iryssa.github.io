@@ -120,7 +120,7 @@ button:active {
 }
 
 @counter-style github-skype {
-  symbols: "\F09B" "<i class="fa-brands fa-skype"></i>";
+  symbols: "\F09B" "\F13E";
   suffix: "\2004\2004";
 }
 
