@@ -112,6 +112,7 @@ button:active {
 .skype::marker {
   font-family: "Font Awesome";
   font-style: normal;
+  font-weight: 900;
   content: "S\F13E\2004\2004";
 }
 
