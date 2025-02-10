@@ -94,6 +94,10 @@ button:active {
   backdrop-filter: blur(2px);
 }
 
+.navigator#left button:active {
+  border-radius: 24px;
+}
+
 .navigator#more {
   position: absolute;
   top: 0%;
@@ -112,11 +116,15 @@ button:active {
 }
 
 .navigator#more button {
-  width: 192px;
+  border-radius: 0px;
 }
 
 .navigator#more button.return {
   border-bottom-right-radius: 24px;
+}
+
+.navigator#more button:active {
+  border-radius: 24px;
 }
 
 .navigator#right {
@@ -140,6 +148,10 @@ button:active {
   border-radius: 0px;
   border-bottom-left-radius: 24px;
   backdrop-filter: blur(2px);
+}
+
+.navigator#right button:active {
+  border-radius: 24px;
 }
 
 .navigator#center {
@@ -232,8 +244,16 @@ button:active {
     transform: translateX(-100%) scaleX(0);
   }
 
+  .navigator#more button {
+    width: max-content;
+  }
+
   .navigator#right {
     transform: translateX(0%) scaleX(0);
+  }
+
+  .fa-angle-up {
+    display: none;
   }
 }
 
@@ -251,7 +271,15 @@ button:active {
     transform: translateY(-100%) scaleY(0);
   }
 
+  .navigator#more button {
+    width: 192px;
+  }
+
   .navigator#right {
     transform: translate(-100%, -100%) scaleY(0);
+  }
+
+  .fa-angle-left {
+    display: none;
   }
 }
