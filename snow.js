@@ -9,7 +9,7 @@ let cw = canvas.width = window.innerWidth;
 let ch = canvas.height = window.innerHeight;
 
 // Physics constants for falling snowflakes (“light snow”).
-const GRAVITY = 0.01;        // Lowered gravity for a gentle, floating feel.
+const GRAVITY = 0.005;        // Lowered gravity for a gentle, floating feel.
 const DRIFT_RANGE = 0.4;     // Maximum horizontal drift per frame
 
 // Ground storage: Accumulated snow height per x-pixel.
@@ -19,7 +19,7 @@ let updateGroundFlag = false; // Flag to indicate when to update the ground
 
 // Controls for snowfall: Maximum number of flakes and flakes added per frame.
 const MAX_FLAKES = 500;
-const NEW_FLAKES_PER_FRAME = 0.5;  // Fractional flakes per frame
+const NEW_FLAKES_PER_FRAME = 0.1;  // Fractional flakes per frame
 let flakes = [];
 // Variable to accumulate fractional flakes.
 let flakeAccumulator = 0;
