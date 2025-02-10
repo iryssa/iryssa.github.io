@@ -240,7 +240,7 @@ button:active {
   }
 
   .navigator#more {
-    width: max-content;
+    display: flex;
     transform: translateX(-100%) scaleX(0);
   }
 
@@ -267,7 +267,7 @@ button:active {
   }
 
   .navigator#more {
-    width: 192px;
+    display: grid;
     transform: translateY(-100%) scaleY(0);
   }
 
