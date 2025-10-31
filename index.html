@@ -1,94 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Iryssa</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6a270e6e1e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <canvas class="background" id="snow"></canvas>
-    <div class="title">Iryssa</div>
-    <div class="subtitle">
-      <div dir="rtl" lang="ar">مرحبًا بك في Iryssa!</div>
-      <div dir="ltr" lang="zh">欢迎来到 Iryssa！</div>
-      <div dir="ltr" lang="en">Welcome to Iryssa!</div>
-      <div dir="ltr" lang="fr">Bienvenue à Iryssa !</div>
-      <div dir="ltr" lang="ru">Добро пожаловать в Iryssa!</div>
-      <div dir="ltr" lang="es">¡Bienvenido a Iryssa!</div>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Iryssa</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin="anonymous" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6a270e6e1e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas class="background" id="snow"></canvas>
+
+  <div class="title">Iryssa</div>
+  <div class="subtitle">
+    <div dir="rtl" lang="ar">مرحبًا بك في Iryssa!</div>
+    <div dir="ltr" lang="zh">欢迎来到 Iryssa！</div>
+    <div dir="ltr" lang="en">Welcome to Iryssa!</div>
+    <div dir="ltr" lang="fr">Bienvenue à Iryssa !</div>
+    <div dir="ltr" lang="ru">Добро пожаловать в Iryssa!</div>
+    <div dir="ltr" lang="es">¡Bienvenido a Iryssa!</div>
+  </div>
+
+  <div class="navigator" id="left">
+    <button class="departure" id="menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="navigator" id="more">
+    <button class="departure" id="about">About</button>
+    <button class="departure" id="projects">Projects</button>
+    <button class="departure" id="members">Members</button>
+    <button class="return" id="menu"><i class="fa-solid fa-angle-left"></i><i class="fa-solid fa-angle-up"></i></button>
+  </div>
+  <div class="navigator" id="right">
+    <button class="departure" id="settings"><i class="fa-solid fa-gear"></i></button>
+  </div>
+  <div class="navigator" id="center">
+    <button class="departure" id="join_us"><i class="fa-solid fa-arrow-trend-up"></i></button>
+  </div>
+
+  <div class="section" id="settings">
+    <button class="return" id="settings"><i class="fa-solid fa-xmark"></i></button>
+    <h1>Settings</h1>
+    <div class="content">
+      <br />
+      <button id="reset_snowpack">Reset Snowpack</button>
     </div>
-    <div class="navigator" id="left">
-      <button class="departure" id="menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="section" id="about">
+    <button class="return" id="about"><i class="fa-solid fa-xmark"></i></button>
+    <h1>About</h1>
+    <div class="content">
     </div>
-    <div class="navigator" id="more">
-      <button class="departure" id="about">About</button>
-      <button class="departure" id="projects">Projects</button>
-      <button class="departure" id="members">Members</button>
-      <button class="return" id="menu"><i class="fa-solid fa-angle-left"></i><i class="fa-solid fa-angle-up"></i></button>
+  </div>
+  <div class="section" id="projects">
+    <button class="return" id="projects"><i class="fa-solid fa-xmark"></i></button>
+    <h1>Projects</h1>
+    <div class="content">
     </div>
-    <div class="navigator" id="right">
-      <button class="departure" id="settings"><i class="fa-solid fa-gear"></i></button>
+  </div>
+  <div class="section" id="members">
+    <button class="return" id="members"><i class="fa-solid fa-xmark"></i></button>
+    <h1>Members</h1>
+    <div class="content">
+      <h2>Kong Wing Wu</h2>
+      <h3>Qiuzhen&nbsp;College, Tsinghua&nbsp;University</h3>
+      <div>Hi, there! <span class="emoji">&#x1F44B;</span></div>
+      <h2>Otis Wong</h2>
+      <h3>Shenzhen&nbsp;Middle&nbsp;School</h3>
+      <div>Hi, there! <span class="emoji">&#x1F44B;</span></div>
     </div>
-    <div class="navigator" id="center">
-      <button class="departure" id="join_us"><i class="fa-solid fa-arrow-trend-up"></i></button>
+  </div>
+  <div class="section" id="join_us">
+    <button class="return" id="join_us"><i class="fa-solid fa-xmark"></i></button>
+    <h1>Join Us</h1>
+    <div class="content">
+      <h2>Links</h2>
+      <ul>
+        <li class="github"><a href="https://github.com/iryssa">GitHub Organization</a></li>
+        <li class="skype"><a href="https://join.skype.com/qhfZf3IJ2rcc">Skype Conversation</a></li>
+      </ul>
+      <h2>Requirements</h2>
+      <p>The skills listed below are just a reference for what we’re looking for right now—you might already have or be
+        interested in developing some of them. If you have other skills, feel free to reach out and chat with us!</p>
+      <ul>
+        <li>Publicity or Resource Management Skills</li>
+        <li>Website Development or Programming Skills</li>
+        <li>Financial Management Skills</li>
+      </ul>
     </div>
-    <div class="section" id="settings">
-      <button class="return" id="settings"><i class="fa-solid fa-xmark"></i></button>
-      <h1>Settings</h1>
-      <div class="content">
-        <br />
-        <button id="reset_snowpack">Reset Snowpack</button>
-      </div>
-    </div>
-    <div class="section" id="about">
-      <button class="return" id="about"><i class="fa-solid fa-xmark"></i></button>
-      <h1>About</h1>
-      <div class="content">
-      </div>
-    </div>
-    <div class="section" id="projects">
-      <button class="return" id="projects"><i class="fa-solid fa-xmark"></i></button>
-      <h1>Projects</h1>
-      <div class="content">
-      </div>
-    </div>
-    <div class="section" id="members">
-      <button class="return" id="members"><i class="fa-solid fa-xmark"></i></button>
-      <h1>Members</h1>
-      <div class="content">
-        <h2>Kong Wing Wu</h2>
-        <h3>Qiuzhen&nbsp;College, Tsinghua&nbsp;University</h3>
-        <div>Hi, there! <span class="emoji">&#x1F44B;</span></div>
-        <h2>Otis Wong</h2>
-        <h3>Shenzhen&nbsp;Middle&nbsp;School</h3>
-        <div>Hi, there! <span class="emoji">&#x1F44B;</span></div>
-      </div>
-    </div>
-    <div class="section" id="join_us">
-      <button class="return" id="join_us"><i class="fa-solid fa-xmark"></i></button>
-      <h1>Join Us</h1>
-      <div class="content">
-        <h2>Links</h2>
-        <ul>
-          <li class="github"><a href="https://github.com/iryssa">GitHub Organization</a></li>
-          <li class="skype"><a href="https://join.skype.com/qhfZf3IJ2rcc">Skype Conversation</a></li>
-        </ul>
-        <h2>Requirements</h2>
-        <p>The skills listed below are just a reference for what we’re looking for right now—you might already have or be interested in developing some of them. If you have other skills, feel free to reach out and chat with us!</p>
-        <ul>
-          <li>Publicity or Resource Management Skills</li>
-          <li>Website Development or Programming Skills</li>
-          <li>Financial Management Skills</li>
-        </ul>
-      </div>
-    </div>
-    <script src="main.js"></script>
-    <script src="snow.js"></script>
-  </body>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="snow.js"></script>
+</body>
+
 </html>

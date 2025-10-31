@@ -30,7 +30,7 @@ button {
   background: rgb(0% 0% 0% / 0%);
   border: none;
   border-radius: 24px;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 button.return {
@@ -44,7 +44,7 @@ button:hover {
 }
 
 button:active {
-  transform: scale(75%);
+  transform: scale(80%);
 }
 
 .title {
@@ -170,24 +170,28 @@ button:active {
   left: 50%;
   visibility: hidden;
   width: max-content;
-  max-width: min(512px, 75%);
+  max-width: min(768px, 60vw);
+  min-width: max(256px, 20vw);
   padding: 24px;
   background: rgb(50% 50% 50% / 50%);
   border-radius: 24px;
   backdrop-filter: blur(8px);
+  z-index: 2;
   transform: translateX(-50%) scaleY(0);
   transition: 0.5s;
 }
 
 .section.active {
   top: 50%;
-  z-index: 1;
   visibility: visible;
   transform: translate(-50%, -50%);
 }
 
 .content {
   border-top: solid;
+  max-height: min(768px, 60vh);
+  min-height: max(256px, 20vh);
+  overflow-y: auto;
 }
 
 .emoji {
